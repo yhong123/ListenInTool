@@ -1,0 +1,558 @@
+﻿<Window x:Class="ListenInTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListenInTool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" WindowState="Maximized">
+    <Grid>
+        <TabControl x:Name="tabControl" Margin="5,5,5,5" >
+            
+            <!-- TAB 1 -->
+            <TabItem Header="Stimuli">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="0">
+                        <Label Content="Select dataset:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                        <ComboBox x:Name="cbDataset" HorizontalAlignment="Left" Margin="0,0,0,20" VerticalAlignment="Top" Width="120" SelectionChanged="cbDataset_SelectionChanged" >
+                            <ComboBoxItem >set A</ComboBoxItem>
+                            <ComboBoxItem >set B</ComboBoxItem>
+                        </ComboBox>
+                        <ListBox x:Name="lbStimulus" HorizontalAlignment="Left" Height="750" VerticalAlignment="Top" Width="500" SelectionChanged="lbStimulus_SelectionChanged" >
+                            <ListBoxItem Name="lbi1">No noise</ListBoxItem>
+                            <ListBoxItem Name="lbi2">Phone voice</ListBoxItem>
+                            <ListBoxItem Name="lbi3">Noise 5%</ListBoxItem>
+                        </ListBox>
+                    </StackPanel>
+
+                    <StackPanel Margin="100,5,5,5" Grid.Row="0" Grid.Column="1">
+                        <Button x:Name="btnNext" Content="Next" HorizontalAlignment="Center" Margin="0,5,0,0" Width="100" Height="22" VerticalAlignment="Top" Click="btnNext_Click" />
+
+                        <Label Name="lb" Content="Freq = 8, Conc = 7" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                            <StackPanel Margin="10,10,0,0">
+                                <Label Name="lbImg1" Content="Image 1 " HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Image Width="200" Height="200" Name="img1" Stretch="Fill" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,0,0">
+                                <Label Name="lbImg2" Content="Image 1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Image Width="200" Height="200" Name="img2" Stretch="Fill" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,0,0">
+                                <Label Name="lbImg3" Content="Image 1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Image Width="200" Height="200" Name="img3" Stretch="Fill" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,0,0">
+                                <Label Name="lbImg4" Content="Image 1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Image Width="200" Height="200" Name="img4" Stretch="Fill" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                            <StackPanel Margin="10,10,0,0">
+                                <Label Name="lbImg5" Content="Image 1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Image Width="200" Height="200" Name="img5" Stretch="Fill" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,0,0">
+                                <Label Name="lbImg6" Content="Image 1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Image Width="200" Height="200" Name="img6" Stretch="Fill" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,0,0">
+                                <Label Name="lbImg7" Content="Image 1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Image Width="200" Height="200" Name="img7" Stretch="Fill" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="10,10,0,0">
+                                <Label Name="lbImg8" Content="Image 1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Image Width="200" Height="200" Name="img8" Stretch="Fill" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                            <Button x:Name="btnAudio1" Content="Audio 1" HorizontalAlignment="Left" Margin="0,15,0,0" Width="300" Height="22" VerticalAlignment="Top" Click="btnAudio1_Click" />
+                            <Button x:Name="btnAudio2" Content="Audio 2" HorizontalAlignment="Left" Margin="20,15,0,0" Width="300" Height="22" VerticalAlignment="Top" Click="btnAudio1_Click" />
+                            <Button x:Name="btnAudio3" Content="Audio 3" HorizontalAlignment="Left" Margin="20,15,0,0" Width="300" Height="22" VerticalAlignment="Top" Click="btnAudio1_Click" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                            <Button x:Name="btnAudio4" Content="Audio 4" HorizontalAlignment="Left" Margin="0,15,0,0" Width="300" Height="22" VerticalAlignment="Top" Click="btnAudio1_Click" />
+                            <Button x:Name="btnAudio5" Content="Audio 5" HorizontalAlignment="Left" Margin="20,15,0,0" Width="300" Height="22" VerticalAlignment="Top" Click="btnAudio1_Click" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                            <Button x:Name="btnIncorrectImg" Content="Incorrect image" HorizontalAlignment="Left" Margin="0,15,0,0" Width="200" Height="22" VerticalAlignment="Top" Click="btnIncorrectImg_Click" />
+                            <Button x:Name="btnIncorrectAudio" Content="Incorrect audio" HorizontalAlignment="Left" Margin="50,15,0,0" Width="200" Height="22" VerticalAlignment="Top" Click="btnIncorrectAudio_Click" />
+                        </StackPanel>
+                        <Button x:Name="btnSaveComment" Content="Save comment" HorizontalAlignment="Left" Margin="0,35,0,0" Width="100" Height="22" VerticalAlignment="Top" Click="btnSaveComment_Click" />
+
+
+                    </StackPanel>
+                    
+                </Grid>
+            </TabItem>
+
+            <!-- TAB 2 -->
+            <TabItem Header="Forced/Trained items">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="50,20,0,0">
+                        <Label Content="Set A:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                        <ListBox x:Name="lbForcedItemSetA" HorizontalAlignment="Left" Height="750" VerticalAlignment="Top" Width="500"  />
+                    </StackPanel>
+                    <StackPanel Margin="150,20,0,0">
+                        <Label Content="Set B:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                        <ListBox x:Name="lbForcedItemSetB" HorizontalAlignment="Left" Height="750" VerticalAlignment="Top" Width="500"  />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <!-- TAB 3 -->
+            <TabItem Header="Therapy blocks">
+                <Grid Background="#FFE5E5E5">
+                    <!--Background="#FFE5E5E5" -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0" Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="0">
+                            <Label Content="Select patient:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                            <!--<ComboBox x:Name="cbUser" HorizontalAlignment="Left" Margin="0,0,0,20" VerticalAlignment="Top" Width="120" SelectionChanged="cbUser_SelectionChanged" >
+                                <ComboBoxItem >1</ComboBoxItem>                                
+                            </ComboBox>-->
+                            <ListBox x:Name="lbUser" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="120" SelectionChanged="lbUser_SelectionChanged"  >                                
+                            </ListBox>
+                        </StackPanel>
+                        <Button Grid.Row="1" x:Name="btnExport" Content="Export block times" HorizontalAlignment="Left" Margin="5,35,0,0" Width="120" Height="22" VerticalAlignment="Top" Click="btnExportBlockTime_Click" />
+
+                    </Grid>
+
+                    <StackPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="1">
+                        <Label Content="BType = block type, green = correct, red = incorrect" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+
+                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,0,0,0" Height="920" Width="1100"
+                              RowHeaderWidth="0" Name="dgBlock" SelectionMode="Single" VerticalGridLinesBrush="{x:Null}" HorizontalAlignment="Center" 
+                              AlternatingRowBackground="PapayaWhip" AlternationCount="2" HorizontalGridLinesBrush="{x:Null}" BorderBrush="CadetBlue" 
+                              CanUserReorderColumns="False" CanUserResizeColumns="False"  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Block" Binding="{Binding Idx}" IsReadOnly="True" Width="50" />
+                                <DataGridTextColumn Header="Linguistic category" Binding="{Binding LinguisticCategory}" IsReadOnly="True" Width="100" />
+                                <DataGridTextColumn Header="Noise" Binding="{Binding NoiseLevel}" IsReadOnly="True" Width="50"  />
+                                <DataGridTextColumn Header="Btype" Binding="{Binding BlockType}" IsReadOnly="True" Width="50"  />
+                                <DataGridTextColumn Header="Acc %" Binding="{Binding AccuracyRate}" IsReadOnly="True" Width="60" />
+
+                                <DataGridTemplateColumn Header="Items" IsReadOnly="True" Width="250" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,10">
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[0]}" Foreground="{Binding LsChallengeItemColour[0]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[1]}" Foreground="{Binding LsChallengeItemColour[1]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[2]}" Foreground="{Binding LsChallengeItemColour[2]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[3]}" Foreground="{Binding LsChallengeItemColour[3]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[4]}" Foreground="{Binding LsChallengeItemColour[4]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[5]}" Foreground="{Binding LsChallengeItemColour[5]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[6]}" Foreground="{Binding LsChallengeItemColour[6]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[7]}" Foreground="{Binding LsChallengeItemColour[7]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[8]}" Foreground="{Binding LsChallengeItemColour[8]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[9]}" Foreground="{Binding LsChallengeItemColour[9]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[10]}" Foreground="{Binding LsChallengeItemColour[10]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[11]}" Foreground="{Binding LsChallengeItemColour[11]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[12]}" Foreground="{Binding LsChallengeItemColour[12]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[13]}" Foreground="{Binding LsChallengeItemColour[13]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemName[14]}" Foreground="{Binding LsChallengeItemColour[14]}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Freq" IsReadOnly="True" Width="50" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,10">
+                                                <TextBlock Text="{Binding Path=LsFrequency[0]}" Foreground="{Binding LsChallengeItemColour[0]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[1]}" Foreground="{Binding LsChallengeItemColour[1]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[2]}" Foreground="{Binding LsChallengeItemColour[2]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[3]}" Foreground="{Binding LsChallengeItemColour[3]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[4]}" Foreground="{Binding LsChallengeItemColour[4]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[5]}" Foreground="{Binding LsChallengeItemColour[5]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[6]}" Foreground="{Binding LsChallengeItemColour[6]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[7]}" Foreground="{Binding LsChallengeItemColour[7]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[8]}" Foreground="{Binding LsChallengeItemColour[8]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[9]}" Foreground="{Binding LsChallengeItemColour[9]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[10]}" Foreground="{Binding LsChallengeItemColour[10]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[11]}" Foreground="{Binding LsChallengeItemColour[11]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[12]}" Foreground="{Binding LsChallengeItemColour[12]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[13]}" Foreground="{Binding LsChallengeItemColour[13]}" />
+                                                <TextBlock Text="{Binding Path=LsFrequency[14]}" Foreground="{Binding LsChallengeItemColour[14]}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Conc" IsReadOnly="True" Width="50" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,10">
+                                                <TextBlock Text="{Binding Path=LsConcreteness[0]}" Foreground="{Binding LsChallengeItemColour[0]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[1]}" Foreground="{Binding LsChallengeItemColour[1]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[2]}" Foreground="{Binding LsChallengeItemColour[2]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[3]}" Foreground="{Binding LsChallengeItemColour[3]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[4]}" Foreground="{Binding LsChallengeItemColour[4]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[5]}" Foreground="{Binding LsChallengeItemColour[5]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[6]}" Foreground="{Binding LsChallengeItemColour[6]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[7]}" Foreground="{Binding LsChallengeItemColour[7]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[8]}" Foreground="{Binding LsChallengeItemColour[8]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[9]}" Foreground="{Binding LsChallengeItemColour[9]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[10]}" Foreground="{Binding LsChallengeItemColour[10]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[11]}" Foreground="{Binding LsChallengeItemColour[11]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[12]}" Foreground="{Binding LsChallengeItemColour[12]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[13]}" Foreground="{Binding LsChallengeItemColour[13]}" />
+                                                <TextBlock Text="{Binding Path=LsConcreteness[14]}" Foreground="{Binding LsChallengeItemColour[14]}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Distr" IsReadOnly="True" Width="50" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,10">
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[0]}" Foreground="{Binding LsChallengeItemColour[0]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[1]}" Foreground="{Binding LsChallengeItemColour[1]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[2]}" Foreground="{Binding LsChallengeItemColour[2]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[3]}" Foreground="{Binding LsChallengeItemColour[3]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[4]}" Foreground="{Binding LsChallengeItemColour[4]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[5]}" Foreground="{Binding LsChallengeItemColour[5]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[6]}" Foreground="{Binding LsChallengeItemColour[6]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[7]}" Foreground="{Binding LsChallengeItemColour[7]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[8]}" Foreground="{Binding LsChallengeItemColour[8]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[9]}" Foreground="{Binding LsChallengeItemColour[9]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[10]}" Foreground="{Binding LsChallengeItemColour[10]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[11]}" Foreground="{Binding LsChallengeItemColour[11]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[12]}" Foreground="{Binding LsChallengeItemColour[12]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[13]}" Foreground="{Binding LsChallengeItemColour[13]}" />
+                                                <TextBlock Text="{Binding Path=LsDistractorNum[14]}" Foreground="{Binding LsChallengeItemColour[14]}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Complexity" IsReadOnly="True" Width="80" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,10">
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[0]}" Foreground="{Binding LsChallengeItemColour[0]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[1]}" Foreground="{Binding LsChallengeItemColour[1]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[2]}" Foreground="{Binding LsChallengeItemColour[2]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[3]}" Foreground="{Binding LsChallengeItemColour[3]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[4]}" Foreground="{Binding LsChallengeItemColour[4]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[5]}" Foreground="{Binding LsChallengeItemColour[5]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[6]}" Foreground="{Binding LsChallengeItemColour[6]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[7]}" Foreground="{Binding LsChallengeItemColour[7]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[8]}" Foreground="{Binding LsChallengeItemColour[8]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[9]}" Foreground="{Binding LsChallengeItemColour[9]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[10]}" Foreground="{Binding LsChallengeItemColour[10]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[11]}" Foreground="{Binding LsChallengeItemColour[11]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[12]}" Foreground="{Binding LsChallengeItemColour[12]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[13]}" Foreground="{Binding LsChallengeItemColour[13]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemComplexity[14]}" Foreground="{Binding LsChallengeItemColour[14]}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                               <!--<DataGridTemplateColumn Header="Diversity" IsReadOnly="True" Width="50" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,10">
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[0]}" Foreground="{Binding LsChallengeItemColour[0]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[1]}" Foreground="{Binding LsChallengeItemColour[1]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[2]}" Foreground="{Binding LsChallengeItemColour[2]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[3]}" Foreground="{Binding LsChallengeItemColour[3]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[4]}" Foreground="{Binding LsChallengeItemColour[4]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[5]}" Foreground="{Binding LsChallengeItemColour[5]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[6]}" Foreground="{Binding LsChallengeItemColour[6]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[7]}" Foreground="{Binding LsChallengeItemColour[7]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[8]}" Foreground="{Binding LsChallengeItemColour[8]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[9]}" Foreground="{Binding LsChallengeItemColour[9]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[10]}" Foreground="{Binding LsChallengeItemColour[10]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[11]}" Foreground="{Binding LsChallengeItemColour[11]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[12]}" Foreground="{Binding LsChallengeItemColour[12]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[13]}" Foreground="{Binding LsChallengeItemColour[13]}" />
+                                                <TextBlock Text="{Binding Path=LsChallengeItemDiversity[14]}" Foreground="{Binding LsChallengeItemColour[14]}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>-->
+
+                                <!--<DataGridTextColumn Header="Block complexity" Binding="{Binding BlockComplexity}" IsReadOnly="True" Width="80" />-->
+                                <DataGridTextColumn Header="User ability" Binding="{Binding UserAbility}" IsReadOnly="True" Width="80" />
+                                <DataGridTextColumn Header="Training step" Binding="{Binding TrainingStep}" IsReadOnly="True" Width="80" />
+
+                                <!--<DataGridTextColumn Header="Freq(m)" Binding="{Binding Freq_Mean}" IsReadOnly="True" Width="60" />
+                                <DataGridTextColumn Header="Freq(sd)" Binding="{Binding Freq_StdDev}" IsReadOnly="True" Width="60" />
+                                <DataGridTextColumn Header="Conc(m)" Binding="{Binding Conc_Mean}" IsReadOnly="True" Width="60" />
+                                <DataGridTextColumn Header="Conc(sd)" Binding="{Binding Conc_StdDev}" IsReadOnly="True" Width="60" />
+                                <DataGridTextColumn Header="Distr(m)" Binding="{Binding DistractorNum_Mean}" IsReadOnly="True" Width="60" />
+                                <DataGridTextColumn Header="Distr(sd)" Binding="{Binding DistractorNum_StdDev}" IsReadOnly="True" Width="60" />
+-->
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+
+                    <Grid Grid.Row="0" Grid.Column="2" Background="#FFE5E5E5">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Margin="15,5,5,10" Grid.Row="0" Grid.Column="0">
+                            <Label x:Name="lbLexicalItemCoverage" Content="Label" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,0,0,0" Height="280" 
+                                  RowHeaderWidth="0" Name="dgLexicalItem" SelectionMode="Single" VerticalGridLinesBrush="{x:Null}" HorizontalAlignment="Left" 
+                                  AlternatingRowBackground="PapayaWhip" AlternationCount="2" HorizontalGridLinesBrush="{x:Null}" BorderBrush="CadetBlue" 
+                                  RowHeight="25" CanUserReorderColumns="False" CanUserResizeColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Idx" Binding="{Binding Idx}" IsReadOnly="True" Width="40" />
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="80" />
+                                    <DataGridTextColumn Header="Exposure" Binding="{Binding PresentedCtr}" IsReadOnly="True" Width="80" />
+                                    <DataGridTextColumn Header="Correct" Binding="{Binding CorrectCtr}" IsReadOnly="True" Width="80" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+
+                        <StackPanel Margin="15,5,5,10" Grid.Row="1" Grid.Column="0">
+                            <Label x:Name="lbChallengeItemCoverage" Content="Label" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,0,0,0" Height="280"
+                                  RowHeaderWidth="0" Name="dgChallengeItem" SelectionMode="Single" VerticalGridLinesBrush="{x:Null}" HorizontalAlignment="Left" 
+                                  AlternatingRowBackground="PapayaWhip" AlternationCount="2" HorizontalGridLinesBrush="{x:Null}" BorderBrush="CadetBlue" 
+                                  RowHeight="25" CanUserReorderColumns="False" CanUserResizeColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Idx" Binding="{Binding Idx}" IsReadOnly="True" Width="40" />
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="250" />
+                                    <DataGridTextColumn Header="Lexical item" Binding="{Binding LexicalItem}" IsReadOnly="True" Width="80" />
+                                    <DataGridTextColumn Header="Freq" Binding="{Binding Frequency}" IsReadOnly="True" Width="40" />
+                                    <DataGridTextColumn Header="Conc" Binding="{Binding Concreteness}" IsReadOnly="True" Width="80" />
+                                    <DataGridTextColumn Header="Exposure" Binding="{Binding PresentedCtr}" IsReadOnly="True" Width="50" />
+                                    <DataGridTextColumn Header="Correct" Binding="{Binding CorrectCtr}" IsReadOnly="True" Width="50" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+
+                        <StackPanel Margin="15,5,5,10" Grid.Row="2" Grid.Column="0">
+                            <Label x:Name="lbChallengeItemFeaturesCoverage" Content="Label" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,0,0,0" Height="280"
+                                  RowHeaderWidth="0" Name="dgChallengeItemFeatures" SelectionMode="Single" VerticalGridLinesBrush="{x:Null}" HorizontalAlignment="Left" 
+                                  AlternatingRowBackground="PapayaWhip" AlternationCount="2" HorizontalGridLinesBrush="{x:Null}" BorderBrush="CadetBlue" 
+                                  RowHeight="25" CanUserReorderColumns="False" CanUserResizeColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Idx" Binding="{Binding Idx}" IsReadOnly="True" Width="40" />
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="250" />
+                                    <DataGridTextColumn Header="Lexical item" Binding="{Binding LexicalItem}" IsReadOnly="True" Width="80" />
+                                    <DataGridTextColumn Header="Freq" Binding="{Binding Frequency}" IsReadOnly="True" Width="40" />
+                                    <DataGridTextColumn Header="Conc" Binding="{Binding Concreteness}" IsReadOnly="True" Width="40" />
+                                    <DataGridTextColumn Header="Distr" Binding="{Binding DistractorNum}" IsReadOnly="True" Width="80" />
+                                    <DataGridTextColumn Header="Exposure" Binding="{Binding PresentedCtr}" IsReadOnly="True" Width="50" />
+                                    <DataGridTextColumn Header="Correct" Binding="{Binding CorrectCtr}" IsReadOnly="True" Width="50" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+
+            <!-- TAB 4 -->
+            <TabItem Header="Therapy time">
+                <Grid Background="#FFE5E5E5">
+                    <!--Background="#FFE5E5E5" -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0" Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Margin="5,5,5,5" Grid.Row="0" Grid.Column="0">
+                            <!--<Label Content="Select patient:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>                            
+                            <ListBox x:Name="tab4_lbUser" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="120" SelectionChanged="lbUser_SelectionChanged"  />-->
+                        </StackPanel>
+                    </Grid>                    
+
+                    <Grid Grid.Row="0" Grid.Column="1" Background="#FFE5E5E5">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Margin="15,5,5,10" Grid.Row="0" Grid.Column="0">
+                            <Label x:Name="lbTotalTherapyTime" Content="Label" HorizontalAlignment="Left" Margin="0,20,0,10" VerticalAlignment="Top"/>
+                            <Label x:Name="lbTotalGameTime" Content="Label" HorizontalAlignment="Left" Margin="0,0,0,20" VerticalAlignment="Top"/>
+                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,0,0,0" Height="580" 
+                                  RowHeaderWidth="0" Name="dgDailyTherapyTime" SelectionMode="Single" VerticalGridLinesBrush="{x:Null}" HorizontalAlignment="Left" 
+                                  AlternatingRowBackground="PapayaWhip" AlternationCount="2" HorizontalGridLinesBrush="{x:Null}" BorderBrush="CadetBlue" 
+                                  RowHeight="25" CanUserReorderColumns="False" CanUserResizeColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Idx" Binding="{Binding Idx}" IsReadOnly="True" Width="40" />
+                                    <DataGridTextColumn Header="Date" Binding="{Binding Date}" IsReadOnly="True" Width="180" />
+                                    <DataGridTextColumn Header="TherapyTime (Min)" Binding="{Binding TherapyTime}" IsReadOnly="True" Width="180" />
+                                    <DataGridTextColumn Header="GameTime (Min)" Binding="{Binding GameTime}" IsReadOnly="True" Width="180" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button x:Name="btnCalculateGameTime" Visibility="Hidden" Content="Calculate Game Time" HorizontalAlignment="Left" Margin="0,50,0,0" Width="200" Height="22" VerticalAlignment="Top" Click="btnCalculateGameTime_Click" />
+                            <Label x:Name="lbCalculateGameTime" Visibility="Hidden" Content="Label" HorizontalAlignment="Left" Margin="0,20,0,10" VerticalAlignment="Top"/>
+                            
+                        </StackPanel>   
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+
+            <!-- TAB 5 -->
+            <TabItem Header="Patient's forced items ">
+                <Grid Background="#FFE5E5E5">
+                    <!--Background="#FFE5E5E5" -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>                        
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="15,15,5,10" Grid.Row="0" Grid.Column="0">
+                        <!--<Label x:Name="lbChallengeItemCoverage" Content="Label" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>-->
+                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,0,0,0" Height="680"
+                                  RowHeaderWidth="0" Name="dgForcedItem" SelectionMode="Single" VerticalGridLinesBrush="{x:Null}" HorizontalAlignment="Left" 
+                                  AlternatingRowBackground="PapayaWhip" AlternationCount="2" HorizontalGridLinesBrush="{x:Null}" BorderBrush="CadetBlue" 
+                                  RowHeight="25" CanUserReorderColumns="False" CanUserResizeColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Idx" Binding="{Binding Idx}" IsReadOnly="True" Width="60" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="300" />
+                                <DataGridTextColumn Header="Lexical item" Binding="{Binding LexicalItem}" IsReadOnly="True" Width="100" />                                
+                                <DataGridTextColumn Header="Exposure" Binding="{Binding PresentedCtr}" IsReadOnly="True" Width="80" />
+                                <DataGridTextColumn Header="Correct" Binding="{Binding CorrectCtr}" IsReadOnly="True" Width="80" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+
+            <!-- TAB 6 -->
+            <TabItem Header="Add new patients">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0" Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Margin="15,5,5,5" Grid.Row="0" Grid.Column="0">
+                            <Label Content="Patients:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,0,0,0" Height="700" 
+                                  RowHeaderWidth="0" Name="dgUserDetail" SelectionMode="Single" VerticalGridLinesBrush="{x:Null}" HorizontalAlignment="Left" 
+                                  AlternatingRowBackground="PapayaWhip" AlternationCount="2" HorizontalGridLinesBrush="{x:Null}" BorderBrush="CadetBlue" 
+                                  RowHeight="25" CanUserReorderColumns="False" CanUserResizeColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Idx" Binding="{Binding Idx}" IsReadOnly="True" Width="40" />
+                                    <DataGridTextColumn Header="Patient id" Binding="{Binding PatientId}" IsReadOnly="True" Width="100" />
+                                    <DataGridTextColumn Header="Dataset" Binding="{Binding Dataset}" IsReadOnly="True" Width="100" />
+                                    <DataGridTextColumn Header="Start date" Binding="{Binding StartDate}" IsReadOnly="True" Width="200" />                                    
+                                </DataGrid.Columns>
+                            </DataGrid>                            
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel Margin="55,25,5,5" Grid.Row="0" Grid.Column="1">                        
+                        <Border BorderBrush="Gray" BorderThickness="1" HorizontalAlignment="Left" Height="300" Margin="5,5,5,5" VerticalAlignment="Top" Width="300">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="10,25,0,0">
+                                    <Label Content="Patient id:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="tbNewPatientId" Text="" Width="130"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="10,25,0,0">
+                                    <Label Content="Dataset:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                                    <ComboBox x:Name="cbNewPatientDataset" Width="130">
+                                        <ComboBoxItem>A-2016-11</ComboBoxItem>
+                                        <ComboBoxItem>B-2016-12</ComboBoxItem>                                        
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="10,25,0,0">
+                                    <Label Content="Start date:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                                    <DatePicker x:Name="dpNewPatientDate" Width="130"></DatePicker>
+                                </StackPanel>
+                                <Button x:Name="btnAddNewPatient" Content="Add new patient" HorizontalAlignment="Left" Margin="10,45,0,0" Width="100" Height="22" VerticalAlignment="Top" Click="btnAddNewPatient_Click" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- TAB 7 -->
+            <TabItem Header="Check crash point">
+                <StackPanel Margin="15,15,5,10">
+                    <Label Content="Log files path:" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" />
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBox x:Name="txtLogPath" Width="850" Height="22"></TextBox>
+                        <Button x:Name="btnBrowseLogPath" Visibility="Hidden" Content="Browse" HorizontalAlignment="Left" Margin="20,0,0,0" Width="100" Height="22" VerticalAlignment="Top" Click="btnBrowseLogPath_Click" />
+                    </StackPanel>
+                    <Button x:Name="btnCheckCrashPoint" Content="Check crash point" HorizontalAlignment="Left" Margin="0,30,0,0" Width="200" Height="22" VerticalAlignment="Top" Click="btnCheckCrashPoint_Click" />
+                    <ListBox x:Name="lbCrashPoint" HorizontalAlignment="Left" Margin="0,30,0,0" Height="700" VerticalAlignment="Top" Width="700" />
+                </StackPanel>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>
